@@ -1,6 +1,5 @@
 build/
 node_modules/
-test/integration/screenshots-current/
 _site/
 .DS_Store
 src/**/*.d.ts
@@ -9,3 +8,6 @@ src/**/*.js.map
 openremote/**/*.d.ts
 openremote/**/*.js
 openremote/**/*.js.map
+screenshots/
+.env
+reports/**
