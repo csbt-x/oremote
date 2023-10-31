@@ -613,6 +613,13 @@ export class Manager implements EventProviderFactory {
         }
     }
 
+    // TODO: Temporary solution for testing purposes
+    public attemptReconnect() {
+        this.updateKeycloakAccessToken().catch(e => {
+            console.error(e);
+        });
+    }
+
     protected async _attemptReconnect(): Promise<boolean> {
 
         this._setDisconnected(true);

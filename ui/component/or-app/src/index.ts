@@ -252,7 +252,8 @@ export class OrApp<S extends AppStateKeyed> extends LitElement {
 
                 document.addEventListener('visibilitychange', () => {
                     if(!document.hidden) {
-                        showErrorDialog("Welcome back!", document.body);
+                        manager.attemptReconnect();
+                        /*showErrorDialog("Welcome back!", document.body);*/
                     }
                 })
 
