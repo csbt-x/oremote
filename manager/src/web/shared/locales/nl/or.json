@@ -191,6 +191,7 @@
   "output": "Output",
   "selectAsset": "Selecteer asset",
   "selectAssetOnTheLeft": "Selecteer een asset aan de linkerkant",
+  "selectAssetTypeOnTheLeft": "Selecteer een asset type aan de linkerkant",
   "noRuleStateAttributes": "Geen attributen met 'rule state' of 'agent link' configuratie item gevonden",
   "noDatapointsAttributes": "Geen attributen met 'store data points' of 'agent link' configuratie item gevonden",
   "noAttributesToShow": "Geen attributen gevonden",
@@ -321,7 +322,12 @@
     "JAVASCRIPT": "JavaScript"
   },
   "gatewayConnection": "Manager interconnect",
-  "gateway": "Manager interconnect",
+  "gateway": {
+    "": "Manager interconnect",
+    "limit_sharing_attribute": "Limiteer het delen van data, per asset type en attributen",
+    "limit_sharing_rate": "Limiteer de mate van het delen van data",
+    "limit_sharing_rate_suffix": "minuten tussen het bijwerken van attribuut waarden"
+  },
   "connectionDetails": "CONNECTIE DETAILS",
   "secured": "Beveiligd",
   "clientSecret": "Client wachtwoord",

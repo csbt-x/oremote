@@ -6,8 +6,10 @@ import "@openremote/or-components/or-panel";
 import {ClientRole, ConnectionStatus, GatewayConnection, GatewayConnectionStatusEvent} from "@openremote/model";
 import manager, {DefaultColor1, DefaultColor3} from "@openremote/core";
 import {InputType, OrInputChangedEvent} from "@openremote/or-mwc-components/or-mwc-input";
+import {OrAssetTypeAttributePicker, OrAssetTypeAttributePickerPickedEvent} from "@openremote/or-attribute-picker";
 import {AppStateKeyed, Page, PageProvider} from "@openremote/or-app";
 import {Store} from "@reduxjs/toolkit";
+import { showDialog } from "@openremote/or-mwc-components/or-mwc-dialog";
 
 export function pageGatewayProvider(store: Store<AppStateKeyed>): PageProvider<AppStateKeyed> {
     return {
@@ -278,14 +280,16 @@ export class PageGateway extends Page<AppStateKeyed>  {
                 <div class="gateway-sharing-control">
                     <or-mwc-input .label="${i18next.t("gateway.limit_sharing_attribute")}" .type="${InputType.CHECKBOX}" ?disabled="${disabled}"></or-mwc-input>
                     <div class="gateway-sharing-control-child">
-                        <or-mwc-input label="X asset types selected" .type="${InputType.BUTTON}" raised ?disabled="${disabled}"></or-mwc-input>
+                        <or-mwc-input label="X asset types selected" .type="${InputType.BUTTON}" raised ?disabled="${disabled}"
+                                      @or-mwc-input-changed="${(e: OrInputChangedEvent) => this._onLimitAttributesButtonClick(e)}"
+                        ></or-mwc-input>
                     </div>
                 </div>
                 <div class="gateway-sharing-control">
                     <or-mwc-input .label="${i18next.t("gateway.limit_sharing_rate")}" .type="${InputType.CHECKBOX}" ?disabled="${disabled}"></or-mwc-input>
                     <div class="gateway-sharing-control-child">
                         <or-mwc-input .type="${InputType.NUMBER}" compact outlined style="width: 84px;"></or-mwc-input>
-                        <span>minutes interval .............</span>
+                        <or-translate value="gateway.limit_sharing_rate_suffix"></or-translate>
                     </div>
                 </div>
             </div>
@@ -367,6 +371,15 @@ export class PageGateway extends Page<AppStateKeyed>  {
         this._connection = connection || {secured: true};
         this._loading = false;
         this._dirty = false;
+    }
+
+    protected _onLimitAttributesButtonClick(ev: OrInputChangedEvent) {
+        const dialog = showDialog(new OrAssetTypeAttributePicker().setMultiSelect(true));
+        dialog.addEventListener(OrAssetTypeAttributePickerPickedEvent.NAME, (ev) => {
+            console.log(ev.detail);
+
+            // TODO: Add handling of attribute limit selection
+        })
     }
 
     protected _onEvent(event: GatewayConnectionStatusEvent) {
