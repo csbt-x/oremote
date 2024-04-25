@@ -2393,7 +2393,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@openremote/manager@workspace:ui/app/manager"
   dependencies:
-    "@openremote/or-app": "npm:^1.1.0"
+    "@openremote/or-app": "workspace:*"
     "@openremote/util": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -2406,7 +2406,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@openremote/or-app@npm:^1.1.0, @openremote/or-app@workspace:ui/component/or-app":
+"@openremote/or-app@npm:^1.1.0, @openremote/or-app@workspace:*, @openremote/or-app@workspace:ui/component/or-app":
   version: 0.0.0-use.local
   resolution: "@openremote/or-app@workspace:ui/component/or-app"
   dependencies:

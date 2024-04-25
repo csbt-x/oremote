@@ -18,10 +18,10 @@
   "author": "OpenRemote",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
+    "@mdi/font": "latest",
     "lit": "^2.0.2"
   },
   "devDependencies": {
-    "@mdi/font": "latest",
     "terser-webpack-plugin": "^5.2.5",
     "typescript": "^5.3.3",
     "webpack": "^5.90.1",
